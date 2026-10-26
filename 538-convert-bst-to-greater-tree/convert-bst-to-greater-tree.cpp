@@ -11,16 +11,22 @@
  */
 class Solution {
 public:
-    int curr = 0;
+    /* int curr = 0;
     void dfs(TreeNode*root){
         if(!root) return;
         dfs(root->right);
         curr+=root->val;
         root->val=curr;
         dfs(root->left);
-    }
+    } */
+    int curr = 0;
     TreeNode* convertBST(TreeNode* root) {
-        dfs(root);
+        
+        if(root==nullptr) return nullptr;
+        convertBST(root->right);
+        curr += root->val;
+        root->val = curr;
+        convertBST(root->left);
         return root;
     }
 };
