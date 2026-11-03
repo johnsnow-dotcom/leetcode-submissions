@@ -1,8 +1,9 @@
 class Solution {
 public:
     int minMoves(vector<int>& nums) {
-       sort(nums.begin(),nums.end());
-       int mid = nums[nums.size()-1];
+       int ma = 0;
+       for(int x:nums) ma = max(x,ma);
+       int mid = ma;
        int ans =0;
        for(int x:nums) ans+=abs(mid-x);
        return ans;
